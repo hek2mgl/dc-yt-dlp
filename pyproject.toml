@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dcytdl"
+dynamic = ["version"]
+dependencies = [
+    "bandit",
+    "black",
+    "bs4",
+    "diff-cover",
+    "flake8",
+    "isort",
+    "pylint",
+    "pytest",
+    "pytest-coverage",
+    "pytest-mock",
+    "selenium",
+    "tabulate",
+    "yt-dlp",
+]
+
+[project.scripts]
+dc-yt-dlp = "dcytdl.cli:main"
+
+[tool.hatchling.dynamic]
+version = {attr = "dcytdl.__version__"}
+
+
+[tool.hatch.version]
+path = "src/dcytdl/__init__.py"

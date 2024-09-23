@@ -1,0 +1,10 @@
+# Byte-compiled
+__pycache__/
+
+# Coverage artifacts
+.coverage
+htmlcov
+coverage.xml
+
+# User config file
+config.yml
