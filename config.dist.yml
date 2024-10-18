@@ -4,4 +4,11 @@ youtube:
   video_base_url: "https://www.youtube.com/watch?v="
   cache: False
 
-output_directory: "./downloads"
+yt_dlp:
+  postprocessors:
+    # Extract audio using ffmpeg
+    - key: "FFmpegExtractAudio"
+      preferredcodec: "mp3"
+  paths:
+    home: "./downloads"
+  writeinfojson: true
