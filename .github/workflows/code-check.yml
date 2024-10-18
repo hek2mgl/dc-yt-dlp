@@ -1,0 +1,29 @@
+---
+name: Code Check
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Create a virtualenv
+      run: python -mvenv venv
+
+    - name: Install dependencies
+      run: |
+        . ./venv/bin/activate
+        pip install -r requirements.txt
+        pip install -r requirements.dev.txt
+
+    - name: Run checks
+      run: |
+        . ./venv/bin/activate
+        make code-check
