@@ -1,9 +1,9 @@
 code-format:
-	isort --profile black src
+	isort --line-length 79 --profile black src
 	black src
 
 code-check:
-	isort --profile black --check src
+	isort --line-length 79 --profile black --check src
 	black --check src
 	pylint src
 	flake8 src
